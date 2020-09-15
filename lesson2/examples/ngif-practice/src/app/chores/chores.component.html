@@ -5,6 +5,7 @@
     </ul>
 </div>
 <hr>
+<p class="info" *ngIf ="chores.length > finishedChores.length">Work harder!</p>
 <div class="doneChores">
     <h3>Done Chores</h3>
     <ul>
@@ -12,3 +13,13 @@
     </ul>
 </div>
 <hr>
+<p *ngIf ="chores.length === 0 || finishedChores.length - chores.length >= 3; else noAllowance">
+    <img src={{targetImage}}>
+</p>
+<ng-template #noAllowance>
+    <div class="info">
+       <p>No allowance yet.</p>
+    </div>
+<div class="info" *ngIf ="chores.length === 0 && finishedChores.length >= 3">
+    <h1>Ice Cream Treat!</h1>
+</div>
